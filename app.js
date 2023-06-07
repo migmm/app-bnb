@@ -11,17 +11,12 @@ import routerAcc from "./src/routes/accommodation.js";
 
 const app = express();
 
-const whiteList = [process.env.ORIGIN1]
+
 app.use(cors({
-    origin:function(origin, callback){
-        if(!origin||whiteList.includes(origin)){
-            return callback(null, origin)
-        }
-        return callback("Error de CORS origin: "+origin+" no autorizado.")
-    },
-    credentials:true,
-    })
-);
+    origin: "*",
+    methods: "*",
+    allowedHeaders: "*"
+  }));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
