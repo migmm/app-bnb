@@ -13,8 +13,7 @@ const app = express();
 
 app.use(cors({
     origin: function(origin, callback){
-        // Permitir todas las URLs
-        return callback(null, origin);
+        callback(null, origin);
     },
     credentials: true
 }));
@@ -32,6 +31,11 @@ app.use('/api/favourites', routerFavs);
 // En caso de usar otra ruta
 app.all("*", (req, res) => {
     res.status(404).json({ error: "404 Not Found" });
+});
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
 });
 
 const PORT = process.env.PORT;
