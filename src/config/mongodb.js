@@ -2,8 +2,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const config = {
-    origin:process.env.ORIGIN1,
-    origin2:process.env.ORIGIN2,
+    origin: process.env.ORIGIN1,
+    origin2: process.env.ORIGIN2,
     port: process.env.MONGODB_PORT,
     mongoURI: process.env.MONGODB_URI,
     googleClientId: process.env.CLIENT_ID,
