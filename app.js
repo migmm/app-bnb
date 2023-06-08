@@ -12,11 +12,7 @@ import routerAcc from "./src/routes/accommodation.js";
 const app = express();
 
 
-app.use(cors({
-    origin: "*",
-    methods: "*",
-    allowedHeaders: "*"
-  }));
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
